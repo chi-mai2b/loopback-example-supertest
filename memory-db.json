@@ -1,0 +1,22 @@
+{
+  "ids": {
+    "User": 1,
+    "AccessToken": 1,
+    "ACL": 1,
+    "RoleMapping": 1,
+    "Role": 1,
+    "Forum": 1,
+    "Post": 2
+  },
+  "models": {
+    "User": {},
+    "AccessToken": {},
+    "ACL": {},
+    "RoleMapping": {},
+    "Role": {},
+    "Forum": {},
+    "Post": {
+      "1": "{\"header\":\"nobis minima repellendus repudiandae assumenda\",\"message\":\"quibusdam soluta animi quos quod\",\"created\":\"2016-07-08T14:50:05.045Z\",\"edited\":\"2016-07-08T14:50:05.045Z\",\"id\":1}"
+    }
+  }
+}
