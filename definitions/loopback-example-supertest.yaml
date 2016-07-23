@@ -528,6 +528,29 @@ paths:
         '204':
           description: Request was successful
       deprecated: false
+  '/posts/{id}/author':
+    get:
+      tags:
+        - Post
+      summary: Fetches belongsTo relation author.
+      operationId: Post.prototype.__get__author
+      parameters:
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Member'
+      deprecated: false
   /posts:
     post:
       tags:
@@ -1076,6 +1099,705 @@ paths:
           schema:
             type: file
       deprecated: false
+  '/members/{id}/accessTokens/{fk}':
+    get:
+      tags:
+        - Member
+      summary: Find a related item by id for accessTokens.
+      operationId: Member.prototype.__findById__accessTokens
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+    delete:
+      tags:
+        - Member
+      summary: Delete a related item by id for accessTokens.
+      operationId: Member.prototype.__destroyById__accessTokens
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - Member
+      summary: Update a related item by id for accessTokens.
+      operationId: Member.prototype.__updateById__accessTokens
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/AccessToken'
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+  '/members/{id}/posts/{fk}':
+    get:
+      tags:
+        - Member
+      summary: Find a related item by id for posts.
+      operationId: Member.prototype.__findById__posts
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for posts
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Post'
+      deprecated: false
+    delete:
+      tags:
+        - Member
+      summary: Delete a related item by id for posts.
+      operationId: Member.prototype.__destroyById__posts
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for posts
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - Member
+      summary: Update a related item by id for posts.
+      operationId: Member.prototype.__updateById__posts
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for posts
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Post'
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Post'
+      deprecated: false
+  '/members/{id}/accessTokens':
+    get:
+      tags:
+        - Member
+      summary: Queries accessTokens of Member.
+      operationId: Member.prototype.__get__accessTokens
+      parameters:
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AccessToken'
+      deprecated: false
+    post:
+      tags:
+        - Member
+      summary: Creates a new instance in accessTokens of this model.
+      operationId: Member.prototype.__create__accessTokens
+      parameters:
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/AccessToken'
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+    delete:
+      tags:
+        - Member
+      summary: Deletes all accessTokens of this model.
+      operationId: Member.prototype.__delete__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/members/{id}/accessTokens/count':
+    get:
+      tags:
+        - Member
+      summary: Counts accessTokens of Member.
+      operationId: Member.prototype.__count__accessTokens
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/members/{id}/posts':
+    get:
+      tags:
+        - Member
+      summary: Queries posts of Member.
+      operationId: Member.prototype.__get__posts
+      parameters:
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Post'
+      deprecated: false
+    post:
+      tags:
+        - Member
+      summary: Creates a new instance in posts of this model.
+      operationId: Member.prototype.__create__posts
+      parameters:
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Post'
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Post'
+      deprecated: false
+    delete:
+      tags:
+        - Member
+      summary: Deletes all posts of this model.
+      operationId: Member.prototype.__delete__posts
+      parameters:
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/members/{id}/posts/count':
+    get:
+      tags:
+        - Member
+      summary: Counts posts of Member.
+      operationId: Member.prototype.__count__posts
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /members:
+    post:
+      tags:
+        - Member
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: Member.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/Member'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Member'
+      deprecated: false
+    put:
+      tags:
+        - Member
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source.
+      operationId: Member.upsert
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/Member'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Member'
+      deprecated: false
+    get:
+      tags:
+        - Member
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: Member.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Member'
+      deprecated: false
+  '/members/{id}/exists':
+    get:
+      tags:
+        - Member
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Member.exists__get_members_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/members/{id}':
+    head:
+      tags:
+        - Member
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Member.exists__head_members_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - Member
+      summary: Find a model instance by id from the data source.
+      operationId: Member.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: Filter defining fields and include
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Member'
+      deprecated: false
+    delete:
+      tags:
+        - Member
+      summary: Delete a model instance by id from the data source.
+      operationId: Member.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    put:
+      tags:
+        - Member
+      summary: >-
+        Update attributes for a model instance and persist it into the data
+        source.
+      operationId: Member.prototype.updateAttributes
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/Member'
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Member'
+      deprecated: false
+  /members/findOne:
+    get:
+      tags:
+        - Member
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: Member.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Member'
+      deprecated: false
+  /members/update:
+    post:
+      tags:
+        - Member
+      summary: Update instances of the model matched by where from the data source.
+      operationId: Member.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/Member'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: The number of instances updated
+            type: object
+      deprecated: false
+  /members/count:
+    get:
+      tags:
+        - Member
+      summary: Count instances of the model matched by where from the data source.
+      operationId: Member.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /members/change-stream:
+    post:
+      tags:
+        - Member
+      summary: Create a change stream.
+      operationId: Member.createChangeStream__post_members_change-stream
+      parameters:
+        - name: options
+          in: formData
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+    get:
+      tags:
+        - Member
+      summary: Create a change stream.
+      operationId: Member.createChangeStream__get_members_change-stream
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+  /members/login:
+    post:
+      tags:
+        - Member
+      summary: Login a user with username/email and password.
+      operationId: Member.login
+      parameters:
+        - name: credentials
+          in: body
+          required: true
+          schema:
+            type: object
+        - name: include
+          in: query
+          description: >-
+            Related objects to include in the response. See the description of
+            return value for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: >+
+              The response body contains properties of the AccessToken created
+              on login.
+
+              Depending on the value of `include` parameter, the body may
+              contain additional properties:
+
+                - `user` - `{User}` - Data of the currently logged in user. (`include=user`)
+
+            type: object
+      deprecated: false
+  /members/logout:
+    post:
+      tags:
+        - Member
+      summary: Logout a user with access token.
+      operationId: Member.logout
+      parameters: []
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  /members/confirm:
+    get:
+      tags:
+        - Member
+      summary: Confirm a user registration with email verification token.
+      operationId: Member.confirm
+      parameters:
+        - name: uid
+          in: query
+          required: true
+          type: string
+        - name: token
+          in: query
+          required: true
+          type: string
+        - name: redirect
+          in: query
+          required: false
+          type: string
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  /members/reset:
+    post:
+      tags:
+        - Member
+      summary: Reset password for a user with email.
+      operationId: Member.resetPassword
+      parameters:
+        - name: options
+          in: body
+          required: true
+          schema:
+            type: object
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
 definitions:
   x-any:
     properties: {}
@@ -1125,13 +1847,39 @@ definitions:
     required:
       - email
     additionalProperties: false
+  Member:
+    properties:
+      realm:
+        type: string
+      username:
+        type: string
+      credentials:
+        type: object
+      challenges:
+        type: object
+      email:
+        type: string
+      emailVerified:
+        type: boolean
+      status:
+        type: string
+      created:
+        type: string
+        format: date
+      lastUpdated:
+        type: string
+        format: date
+      id:
+        type: number
+        format: double
+    required:
+      - email
+    additionalProperties: false
   Post:
     properties:
       header:
-        maxLength: 50
         type: string
       message:
-        maxLength: 5000
         type: string
       created:
         type: string
@@ -1140,6 +1888,12 @@ definitions:
         type: string
         format: date
       id:
+        type: number
+        format: double
+      memberId:
+        type: number
+        format: double
+      authorId:
         type: number
         format: double
     required:

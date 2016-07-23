@@ -1,22 +1,38 @@
 {
   "ids": {
-    "User": 1,
-    "AccessToken": 1,
+    "AccessToken": 2,
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
+    "User": 1,
+    "Member": 2,
     "Forum": 1,
-    "Post": 2
+    "Post": 5
   },
   "models": {
-    "User": {},
-    "AccessToken": {},
+    "AccessToken": {
+      "gWI1guuGnOOUa8TVIS91NgX9hZ0mFzpzECGfXik9IKqE6Ll2fjxwgGR6yO74po51": {
+        "id": "gWI1guuGnOOUa8TVIS91NgX9hZ0mFzpzECGfXik9IKqE6Ll2fjxwgGR6yO74po51",
+        "ttl": 3600,
+        "created": "2016-07-21T03:52:22.000Z",
+        "userId": 1
+      }
+    },
     "ACL": {},
     "RoleMapping": {},
     "Role": {},
+    "User": {},
+    "Member": {
+      "1": {
+        "id": 1,
+        "username": "user_1",
+        "email": "user_1@foo.com",
+        "password": "foo123"
+      }
+    },
     "Forum": {},
     "Post": {
-      "1": "{\"header\":\"nobis minima repellendus repudiandae assumenda\",\"message\":\"quibusdam soluta animi quos quod\",\"created\":\"2016-07-08T14:50:05.045Z\",\"edited\":\"2016-07-08T14:50:05.045Z\",\"id\":1}"
+      "4": "{\"header\":\"Post 1 header\",\"message\":\"Post 1 body\",\"created\":\"2016-07-20T21:58:27.885Z\",\"authorId\":1,\"id\":4}"
     }
   }
 }

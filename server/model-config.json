@@ -41,5 +41,9 @@
     "dataSource": "db",
     "public": true,
     "strict": true
+  },
+  "Member": {
+    "dataSource": "db",
+    "public": true
   }
 }
